@@ -41,7 +41,7 @@
         function randomFloat(min,max){
             var rand = Math.random();
             rand = rand*(max - min) + min;
-            return rand.toFixed(1);;
+            return rand.toFixed(1);
         }
         randomFloat(1 , 5);
 
@@ -50,19 +50,27 @@
 	// 사용예:
 	// var date = new Date(1426863600000);
 	// console.log(formatDate(date)); // 출력 결과: 2015년 3월 21일 토요일
+		var date = new Date();
+		function formatDate(date){
+			var day = date.getDay();
+			daystr = '일월화수목금토일'.substr(day,1)
+			date = date.getFullYear() + '년 ' + (date.getMonth() +1) + '월 ' + date.getDate() + '일 ' + daystr + '요일';
+			return date;	
+		}
+        console.log(formatDate(date));
 
-        
 	// 문제5: 생일을 입력하면 살아온 날짜를 숫자로 반환하는 함수 lifeTime()을 작성하라.
 	// 태어난 날을 1일로 센다.
 	// 사용예: console.log( lifeTime(1980, 2, 13) );
 	// 힌트: 테스트 할 때는 어제나 2일 전 등 가까운 날짜를 입력한 후 테스트 해보는 것이 편합니다.
         
-       function lifetime(연, 월, 일){
-           var birthdate = new Date(1984, 12, 27);
-           var presentdate = new Date();
-           var caldate = (presentdate - birthdate);
+       function lifeTime(연, 월, 일){
+           var birthDate = new Date(연, 월-1, 일);
+           var presentDate = new Date();
+           var dateDiff = presentDate.getTime() - birthDate.getTime();
+           return Math.ceil(dateDiff/1000/60/60/24);
        }
-    console.log(caldate);
+	    console.log(lifeTime(1984, 12, 27));
        
 	// 문제6: 인수로 전달된 시각까지 앞으로 남은 시간을 "1시간 10분 35초"처럼 1초마다 카운트다운하며
 	// 표시하는 countDown() 함수를 작성하라(실행 예는 https://youtu.be/-cdVk4KMPXw 참고).
@@ -70,7 +78,29 @@
 	// 힌트2: showTimer() 함수는 만들어두기만 하면 자동으로 실행된다.
 	// 사용예: countDown(2015, 3, 26, 13); // 3월 26일 오후 1시까지 남은 시간 표시
 
-        
+		/*	
+			function countDown(연, 월, 일, 시, 분, 초){
+		
+			var dTime = new Date(연, 월 -1, 일, 시 -1, 분, 초);
+			var	rTime = new Date();
+
+		    var diffTime = dTime.getTime() - rTime.getTime();
+		    
+		    var rYears = diffTime.getFullyear();
+		    var rMonths = diffTime.getMonth() -1;
+		    var rDays =  diffTime.getDate();
+		    var rHours = Math.ceil(diffTime/1000/60/60);
+			var rMin = Math.ceil(diffTime/1000/60) 
+			var rSec = Math.ceil(diffTime/1000);
+			
+			countTimer = rYears + '연' + rMonths + '월' + rDays + '일' + rHours + '시' + rMin + '분' + rSec + '초'
+
+        }
+
+	
+		*/
+
+	
 	</script>
 </head>
 <body>
