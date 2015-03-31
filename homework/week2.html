@@ -96,9 +96,25 @@
 			countTimer = rYears + '연' + rMonths + '월' + rDays + '일' + rHours + '시' + rMin + '분' + rSec + '초'
 
         }
-
-	
 		*/
+        
+        //숙제풀이
+        function countDown(연, 월, 일, 시){
+            var 날짜, 현재, 남은시, 남은분, 남은초, 남은밀리초;
+            날짜 = new Date(연, 월, 일, 시);
+            현재 = new Date();
+            
+            남은밀리초 = 날짜 - 현재;
+            남은초 = Math.floor((남은밀리초/1000) % 60);
+            남은분 =  Math.floor((남은밀리초/1000/60) % 60);
+            남은시 = Math.floor(남은밀리초/1000/60/60);
+            
+            log(남은시 + '시간' + 남은분 +'분'+ 남은초 + '초');
+            setTimeout(function (){countDown(연, 월, 일, 시)}, 1000);
+             
+        }
+        countDown(2015, 3, 26, 13);
+	
 
 	
 	</script>
