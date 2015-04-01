@@ -20,32 +20,133 @@
 	// var arr = [1, 2, 4, 8, 11];
 	// 홀짝(arr);
 	// console.log(arr); // ['홀수', '짝수', '짝수', '짝수', '홀수']
-
+       
+          function 홀짝(arr){
+          for (var i = 0; i < arr.length; i++){
+                if (arr[i] % 2 === 0){
+                    arr[i] = '짝수';
+                } else{
+                   arr[i] = '홀수';
+                }
+            }
+        }
+            var arr = [1,2,4,8,11];
+            홀짝(arr);
+            console.log(arr);
+        
+              
 	// 문제2: 인수로 전달된 두 숫자를 작은 순서대로 정렬하여 배열로 반환하는 함수 정렬()을 작성하라.
 	// 사용예:
 	// 정렬(4, 6); // [4, 6] 배열이 반환된다.
 	// 정렬(8, 2); // [2, 8] 배열이 반환된다.
 	// 정렬(10, 3); // [3, 10] 배열이 반환된다.
+       
+        function 정렬(a,b){
+            var arr = [a, b]
+            if (a > b){
+                return arr = [b, a]
+            } else {
+                return arr = [a, b]
+            }
+        }
 
+        정렬(4, 6); // [4, 6] 배열이 반환된다.
+        정렬(8, 2); // [2, 8] 배열이 반환된다.
+        정렬(10, 3);
+        
 	// 문제3: 인수로 전달한 두 숫자 사이의 수 중 3의 배수만 포함한 배열을 반환하는 함수 삼삼() 을 작성하라.
-	// 단, 배열에 포함되는 숫자는 두 숫자 중 작은 수의 2배보다 크지 않아야 하며, 인수로 전달한 숫자는 배열에 포함하지 않는다.
+	// 단, 배열에 포함되는 숫자는 두 숫자 중 작은 수의 2배보다 크지 않아야 하며, 인수로 전달한 숫자는 배열에 포함하지       않는다.
 	// 사용예:
 	// console.log(삼삼(5, 10)); // 결과: [6, 9] <- 5와 10 사이에 있는 3의 배수는 6, 9이다.
 	// console.log(삼삼(5, 15)); // 결과: [6, 9] <- 작은 수가 5이므로 10보다 큰 수는 포함하지 않는다.
-	// console.log(삼삼(10, 5)); // 결과: [6, 9] <- 두 숫자 중 5가 작고 10이 크므로 결과는 삼삼하다(5, 10)과 같다.
+	// console.log(삼삼(10, 5)); // 결과: [6, 9] <- 두 숫자 중 5가 작고 10이 크므로 결과는 삼삼하다(5, 10)과      같다.
 	// console.log(삼삼(2, 3)); // 결과: [ ] <- 2와 3 사이에는 3의 배수가 없다.
-
-	// 문제4: 배열에 포함된 숫자를 모두 더해 결과를 반환하는 sum() 메소드를 작성하라.
+       
+        function 삼삼(a, b){
+            var arr = new Array(a,b);
+            
+            if (a > b)
+           
+            if (a > b){
+                arr = [b, a];
+                for (var i = b; b < a; b++){
+                    if ((arr[i] % 3 === 0) || arr[i] < i*2){
+                     arr.push(arr[i]);
+                    } else {
+                        continue;
+                    }
+                }
+            }
+            if (b > a){
+                arr = [a, b];
+                for (var i = a; a < b; a++){
+                    if ((arr[i] % 3 === 0) || arr[i] < i*2){
+                     arr.push(arr[i]);
+                    } else {
+                        continue;
+                    }
+                }
+            }
+            return arr;
+        }
+        
+        console.log(삼삼(5, 10)); 
+        console.log(삼삼(5, 15)); 
+        console.log(삼삼(10, 5));
+	
+    // 문제4: 배열에 포함된 숫자를 모두 더해 결과를 반환하는 sum() 메소드를 작성하라.
 	// 사용예:
 	// console.log([1, 3, 5].sum()); // 9
 	// console.log([ ].sum()); // 0
 	// console.log(['사과','바나나', 5, 2].sum()); // 7
-
-	// 문제5: 날짜 객체를 "2015년 3월 28일 오전 11시 8분 7초"와 같은 한국식 날짜 문자열로 만들어 반환하는
+   
+        Array.prototype.sum = function (){
+           var result = 0;
+           for(var i = 0; i < this.length; i++){
+               if (typeof this[i] === 'number'){
+                   result += this[i];
+               }
+            }
+            return result;
+        }
+        
+        console.log([1, 3, 5].sum()); // 9
+        console.log([ ].sum()); // 0
+        console.log(['사과','바나나', 5, 2].sum()); // 7
+            
+	
+    // 문제5: 날짜 객체를 "2015년 3월 28일 오전 11시 8분 7초"와 같은 한국식 날짜 문자열로 만들어 반환하는
 	// formatStr() 메소드를 작성하라.
 	// 사용예:
 	// var date = new Date(2015, 2, 27, 11, 8, 7)
 	// console.log(date.formatStr()); // "2015년 3월 27일 오전 11시 8분 7초" 출력
+        
+        Date.prototype.formatStr = function (){
+            년 = this.getFullYear();
+            월 = this.getMonth();
+            일 = this.getDate();
+            
+            ampm = this.getHours();
+            if (this.getHours() >= 12) {
+            ampm = '오후';
+            } else {
+            ampm = '오전';}
+            
+            시 = this.getHours();
+            if (시 > 12){
+                시 = 시 -12;
+            };
+            
+            분 = this.getMinutes();
+            초 = this.getSeconds();
+            
+            
+            return (년 + '년 ' + (월+1) + '월 ' + 일 + '일 ' + ampm + ' ' + 시 + '시 ' + 분 + '분 ' + 초 + '초')
+        }
+        
+        var date = new Date();
+        console.log(date.formatStr());
+        
 	</script>
 </head>
 <body>
