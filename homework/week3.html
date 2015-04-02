@@ -70,20 +70,16 @@
             if (a > b){
                 arr = [b, a];
                 for (var i = b; b < a; b++){
-                    if ((arr[i] % 3 === 0) || arr[i] < i*2){
-                     arr.push(arr[i]);
-                    } else {
-                        continue;
+                    if ((arr[i] % 3 === 0) && arr[i] < i*2){
+                     arr[i].push(arr[i]);
                     }
                 }
             }
             if (b > a){
                 arr = [a, b];
                 for (var i = a; a < b; a++){
-                    if ((arr[i] % 3 === 0) || arr[i] < i*2){
-                     arr.push(arr[i]);
-                    } else {
-                        continue;
+                    if ((arr[i] % 3 === 0) && arr[i] < i*2){
+                     arr[i].push(arr[i]);
                     }
                 }
             }
