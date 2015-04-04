@@ -64,28 +64,27 @@
        
         function 삼삼(a, b){
             var arr = new Array(a,b);
-            
-            if (a > b)
-           
+           /*
             if (a > b){
                 arr = [b, a];
-                for (var i = b; b < a; b++){
+                for (var i = 2; i < a; b++){
                     if ((arr[i] % 3 === 0) && arr[i] < i*2){
-                     arr[i].push(arr[i]);
+                     arr.push(arr[i]);
                     }
                 }
             }
             if (b > a){
                 arr = [a, b];
-                for (var i = a; a < b; a++){
+                for (var i = 2; a < b; a++){
                     if ((arr[i] % 3 === 0) && arr[i] < i*2){
-                     arr[i].push(arr[i]);
+                     arr.push(arr[i]);
                     }
                 }
             }
             return arr;
         }
-        
+        */
+            
         console.log(삼삼(5, 10)); 
         console.log(삼삼(5, 15)); 
         console.log(삼삼(10, 5));
