@@ -1,4 +1,4 @@
-f (typeof countDown === 'function') {
+if (typeof countDown === 'function') {
 	window.onload = function(){ countDown(2015, 3, 28, 9); };
 }
 

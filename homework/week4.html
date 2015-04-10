@@ -23,65 +23,75 @@
 	// 사용예:
 	//   isZipCode('200-333) // true 반환
 	//   isZipCode('200-33') // false 반환
-     
+        
         function isZipCode(zipN){
             var regex = new RegExp('^[1-9][0-9]{2}-[0-9]{3}$');
-            console.log(regex.test(zipN));
-            if (regex.test(zipN) === true){
-                return true;
+            if (regex.test(zipN)){
+               return true;
             } else {
-                return false;
+               return false;
             }
-        };
+        }
         
-        isZipCode('200-300');
+        isZipCode('200-333');
         isZipCode('200-33');
-        isZipCode('1234-123');
-        isZipCode('023-123');
-        isZipCode('323-975');
+        isZipCode('012-333');
         
 	// 문제2: 인수로 전달한 아이디를 가진 입력 폼에 "성공!"이라는 문자열을 출력하는 성공() 함수를 작성하라.
 	// 사용예:
 	//    성공('text1');
-       
-         function 성공(iD){
-            var d = document.querySelectorAll('div');
-            for (var i=0; i < d.length; i++){
-            if (d[i].getAttribute('id') !== null) {
-            document.getElementById(iD).value = '성공!';
-            document.getElementById(iD).innerHTML = '성공!';
-            };
-          }
-         }
+            
+        function 성공(a){
+            var di = document.querySelectorAll('div');
+            for (i=0; i < di.length; i++){
+                di[i].getAttribute('d')
+                document.getElementById(a).value = '성공!';
+                document.getElementById(a).innerHTML = '성공!';
+            }
+        }
         성공('text1');
+        
         
 	// 문제3: jQuery를 사용해 아이디가 box인 엘리먼트에 이벤트 리스너를 추가하라.
 	// 단, 상자는 그냥 클릭하면 오른쪽으로 10픽셀 이동하고 Alt 키를 누른채 클릭하면 왼쪽으로 10픽셀 이동해야 한다.
 	// 힌트1: 이벤트 객체의 altKey 프로퍼티를 사용하면 Alt 키가 눌렸는지 확인할 수 있습니다.
 	// 힌트2: 문자열을 숫자로 변환하는 과정이 필요할 것입니다.
-        
+    
+                         
+
         jQuery(function($){
-         $('#box').on('click', function(event){
-            var move = $(this).css('left');
-            var m = parseInt(move);
-            
-            if (event.altKey){
-                    $(this).css('left', m -10);
-                } else {
-                    $(this).css('left', m +10);
-                }
-             
-               /*
+           $('#box').on('click',function(event){
+               var loc = $('#box').css('left');
+               var mloc = parseInt(loc);
+               
                if (event.altKey){
-                    $(this).css('left', '-=10');
-                } else {
-                    $(this).css('left', '+=10');
-                }
-                */
-            });
+                   $(this).css('left', '+=10');
+               } else {
+                  $(this).css('left', '-=10');
+               }
+           }); 
         });
         
-               
+/*   $('#box').on('click', function(event){
+         var width = $(this).width();
+         var height = $(this).height();
+         
+         console.log($(this).height);
+         
+         if (event.shiftkey === 'true') {
+        
+             width -= 10;
+             height -= 10;
+            
+             $(this).width(width);
+             $(this).height(height);             
+         } else {
+
+             width += 10;
+             height += 10;
+             
+             $(this).width(width);
+             $(this).height(height);*/
 	</script>
 </head>
 <body>
